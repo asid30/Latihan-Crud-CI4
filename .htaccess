@@ -7,3 +7,5 @@
     Require all denied
     Satisfy All
 </FilesMatch>
+
+SetEnv CI_ENVIRONMENT development
