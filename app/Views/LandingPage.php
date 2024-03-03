@@ -19,23 +19,42 @@
                     <th class="border border-slate-600">Kampus</th>
                     <th class="border border-slate-600">Jurusan</th>
                     <th class="border border-slate-600">Posisi</th>
+                    <th class="border border-slate-600">Aksi</th>
                 </tr>
             </thead>
             <tbody>
                 <?php 
                 $nomor = 1;
                 foreach ($data_peserta as $i):
+                    $id = $i -> id;
                     $nama = $i -> Nama;
                     $kampus = $i -> Kampus;
                     $jurusan = $i -> Jurusan;
                     $posisi = $i -> Posisi;
                 ?>
                 <tr>
-                    <td class="border border-slate-600 w-8"><?=$nomor?></td>
-                    <td class="border border-slate-600"><?=$nama?></td>
-                    <td class="border border-slate-600"><?=$kampus?></td>
-                    <td class="border border-slate-600"><?=$jurusan?></td>
-                    <td class="border border-slate-600"><?=$posisi?></td>
+                    <td class="border border-slate-600 w-8 p-2"><?=$nomor?></td>
+                    <td class="border border-slate-600 p-2"><?=$nama?></td>
+                    <td class="border border-slate-600 p-2"><?=$kampus?></td>
+                    <td class="border border-slate-600 p-2"><?=$jurusan?></td>
+                    <td class="border border-slate-600 p-2"><?=$posisi?></td>
+                    <td class="border border-slate-600 p-2">
+                        <div class='flex flex-row gap-1'>
+                            <form method='post' action="<?= base_url('/edit-data') ?>">
+                                <input type="text" name="id" id="id" autocomplete="id" value="<?=$id?>" hidden>
+                                <input type="text" name="Nama" id="Nama" autocomplete="Nama" value="<?=$nama?>" hidden>
+                                <input type="text" name="Kampus" id="Kampus" autocomplete="Kampus" value="<?=$kampus?>" hidden>
+                                <input type="text" name="Jurusan" id="Jurusan" autocomplete="Jurusan" value="<?=$jurusan?>" hidden>
+                                <input type="text" name="Posisi" id="Posisi" autocomplete="Posisi" value="<?=$posisi?>" hidden>
+                                <button type='submit' class='text-blue-500 underline'>Edit</button>
+                            </form>
+                            /
+                            <form method='post' action="<?= base_url('/hapus-data') ?>">
+                                <input type="text" name="id" id="id" autocomplete="id" value="<?=$id?>" hidden>
+                                <button type='submit' class='text-blue-500 underline'>Edit</button>
+                            </form>
+                        </div>
+                    </td>
                 </tr>
                 <?php
                 $nomor++;

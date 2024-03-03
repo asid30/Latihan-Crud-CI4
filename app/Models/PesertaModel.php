@@ -43,4 +43,9 @@ class PesertaModel extends Model
     public function savePeserta($data){
         $this->insert($data);
     }
+
+    public function updatePeserta($data, $id)
+    {
+        return $this->update($id, $data);
+    }
 }

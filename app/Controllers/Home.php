@@ -30,7 +30,7 @@ class Home extends BaseController
         return view('TambahData');
     }
 
-    public function submitResult()
+    public function tambahDataSimpan()
     {
         $pesertaModel = new PesertaModel();
         $pesertaModel -> savePeserta([
@@ -47,6 +47,30 @@ class Home extends BaseController
             'Posisi' => $this->request->getVar('Posisi'),
         ];
 
-        return view('LandingPage', $data);
+        return redirect()->to(base_url('/'));
+    }
+
+    public function editData()
+    {
+        $data = [
+            'id' => $this->request->getVar('id'),
+            'Nama' => $this->request->getVar('Nama'),
+            'Kampus' => $this->request->getVar('Kampus'),
+            'Jurusan' => $this->request->getVar('Jurusan'),
+            'Posisi' => $this->request->getVar('Posisi'),
+        ];
+        return view('EditData', $data);
+    }
+
+    public function editDataSimpan()
+    {
+        $data = [
+            'id' => $this->request->getVar('id'),
+            'Nama' => $this->request->getVar('Nama'),
+            'Kampus' => $this->request->getVar('Kampus'),
+            'Jurusan' => $this->request->getVar('Jurusan'),
+            'Posisi' => $this->request->getVar('Posisi'),
+        ];
+        return view('EditData', $data);
     }
 }
