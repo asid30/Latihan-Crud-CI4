@@ -48,4 +48,8 @@ class PesertaModel extends Model
     {
         return $this->update($id, $data);
     }
+
+    public function detelePeserta($data){
+        $this->delete($data);
+    }
 }

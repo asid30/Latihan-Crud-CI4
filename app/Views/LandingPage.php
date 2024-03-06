@@ -51,7 +51,7 @@
                             /
                             <form method='post' action="<?= base_url('/hapus-data') ?>">
                                 <input type="text" name="id" id="id" autocomplete="id" value="<?=$id?>" hidden>
-                                <button type='submit' class='text-blue-500 underline'>Edit</button>
+                                <button type='submit' class='text-blue-500 underline'>Hapus</button>
                             </form>
                         </div>
                     </td>
